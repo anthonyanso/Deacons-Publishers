@@ -1,0 +1,590 @@
+/* Fonts */
+:root {
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Nunito", sans-serif;
+  --nav-font: "Inter", sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root {
+  --background-color: #eaeaea;
+  --default-color: #212529;
+  --heading-color: #131212;
+  --accent-color: #cc6600;
+  --surface-color: #faf9f6;
+  --contrast-color: #faf9f6;
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+  --nav-color: #212529;
+  --nav-hover-color: #cc6600;
+  --nav-mobile-background-color: #faf9f6;
+  --nav-dropdown-background-color: #faf9f6;
+  --nav-dropdown-color: #212529;
+  --nav-dropdown-hover-color: #cc6600;
+}
+
+/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+
+.light-background {
+  --background-color: #f3f9ff;
+  --surface-color: #faf9f6;
+}
+
+.dark-background {
+  --background-color: #cc6600;
+  --default-color: #faf9f6;
+  --heading-color: #faf9f6;
+  --surface-color: #cc6600;
+  --contrast-color: #faf9f6;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+  # General Styling & Shared Classes
+  --------------------------------------------------------------*/
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+mark {
+  background-color: rgb(196, 194, 191);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/* Hero Section */
+main .main-hero {
+  padding-top: 9em;
+
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--surface-color);
+  position: relative;
+  border-bottom: 5px solid rgb(211, 211, 211);
+}
+
+.hero {
+  text-align: left;
+  padding: 60px 75px;
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0;
+}
+
+/* Team Images */
+
+.office-img {
+  height: 500px;
+  width: auto;
+  margin: 0; 
+  object-fit: cover; 
+  position: relative; 
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  /* Tablet Mode */
+  #home {
+    flex-direction: column;
+    justify-content: flex-start;
+    background: linear-gradient(rgba(0, 0, 0, 0.413), rgba(0, 0, 0, 0.413)),
+      url("../img/career_back.png") no-repeat center center/cover;
+  }
+
+  .team-images {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+  }
+
+  .office-img {
+    display: none;
+  }
+
+  .hero{
+    padding: 10em 1.3em;
+  }
+
+  .hero h2 {
+    color: var(--contrast-color);
+  }
+
+  .hero p {
+    color: var(--contrast-color);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Phone Mode */
+  .main-hero {
+    padding: 2em;
+    flex-direction: column;
+    background-image: url("../assets/img/career/careerenvironment.png"); /* Phone-specific background */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .hero{
+    padding: 10em 0;
+  }
+
+  .hero h2 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .office-img {
+    width: 200px;
+    height: auto; /* Adjust for small screens */
+  }
+}
+
+/* <!-- hero 2 --> */
+/* General Section Styling */
+.viewcareer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em 72px; 
+  gap: 2em;
+  background-color: #f9f9f9;
+  margin: 0;
+  border-bottom: 5px solid rgb(211, 211, 211);
+}
+
+/* Image Styling */
+.career-img {
+  flex: 1;
+  max-width: 50%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Section Styling */
+.viewcareer .text {
+  flex: 1;
+  text-align: left;
+}
+
+/* Headline Styling */
+.viewcareer h3 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 0.5em;
+}
+
+/* Span Styling */
+.viewcareer span {
+  display: block;
+  font-size: 2em;
+  font-weight: 800;
+  color: #cc6600;
+  margin-top: -10px; /* Closer to the h3 */
+  margin-bottom: 1em;
+}
+
+/* Paragraph Styling */
+.viewcareer p {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 2em; /* Creates spacing from the button */
+}
+
+/* Button Styling */
+.position_button button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #cc6600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.position_button button i {
+  font-size: 1.2em;
+}
+
+.position_button button:hover {
+  background-color: #a15101;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .viewcareer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .career-img {
+    max-width: 100%;
+  }
+
+  .position_button button {
+    width: 100%;
+  }
+}
+/* <!-- hero 2 ends here --> */
+
+/* culture and values */
+/* Culture and Values Section */
+.cultures {
+  padding: 4em 72px;
+  background-color: #f9f9f9;
+  border-bottom: 5px solid rgb(211, 211, 211);
+}
+
+/* Head Section */
+.cultures .head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5em;
+  margin-bottom: 2em;
+}
+
+.cultures .head h2 {
+  font-size: 2.8em;
+  font-weight: 700;
+  color: var(--default-color);
+}
+
+.cultures .head h2 span {
+  color: var(--accent-color);
+}
+
+.cultures .head p {
+  font-size: 1.8em;
+  color: var(--default-color);
+  margin: 0;
+}
+
+/* Items Section */
+.cultures .item1,
+.cultures .item2 {
+  flex: 1;
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Individual Item */
+.cultures .item {
+  /* background: #fff; */
+  padding: 1.5em;
+  border-radius: 8px;
+  border-left: 1px solid #555;
+  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cultures .item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.cultures .item h4 {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: var(--default-color);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color);
+  margin-bottom: 0.5em;
+}
+
+.cultures .item p {
+  font-size: 16px;
+  color: var(--default-color);
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cultures .item1,
+  .cultures .item2 {
+    flex-direction: column;
+    gap: 1.5em;
+  }
+}
+
+@media (max-width: 992px) {
+  .cultures .item1,
+  .cultures .item2 {
+    flex-direction: column;
+    gap: 2em;
+  }
+}
+/* culture and values ends here */
+
+/* open positions */
+/* Open Positions Section */
+.positions {
+  padding: 4em 72px;
+  background-color: #f9f9f9;
+  border-bottom: 5px solid rgb(211, 211, 211);
+}
+
+/* Position Text (Header Section) */
+.open_position_text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5em;
+  margin-bottom: 2em;
+}
+
+.open_position_text h3 {
+  font-size: 2.8em;
+  font-weight: 700;
+  color: var(--default-color);
+}
+
+.open_position_text h3 span {
+  color: var(--accent-color);
+}
+
+.open_position_text p {
+  font-size: 1.3em;
+  color: var(--default-color);
+  margin: 0;
+}
+
+/* Vacancy Section */
+.vacancy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: space-between;
+}
+
+/* Job Item */
+.job {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  padding: 2em;
+  padding-right: 3em;
+  border-radius: 8px;
+  border-left: 1.5px solid var(--nav-color);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.job:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Hide the icon initially */
+.job i {
+  display: none;
+}
+
+/* Show the icon on hover */
+.job:hover i {
+  display: block;
+}
+
+/* Job Title and Department */
+.job .title h3 {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.5em;
+}
+
+.job .title h5 {
+  font-size: 1.4em;
+  font-weight: 400;
+  font-weight: 700;
+  color: var(--default-color);
+}
+
+/* Job Location */
+.job .location {
+  gap: 0.5em;
+}
+
+.job .location h3 {
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+.job .location p {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: var(--default-color);
+}
+
+/* Apply Button */
+.apply_btn {
+  margin-top: 2.5em;
+}
+
+.apply_btn button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f39c12;
+  color: #fff;
+  border: none;
+  gap: 10px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.apply_btn button:hover {
+  background-color: #e67e22;
+  transform: scale(1.05);
+}
+
+.apply_btn button i {
+  margin-left: 8px;
+  font-size: 1.2em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .job {
+    flex-direction: column;
+    gap: 1.5em;
+    border: none;
+  }
+
+  .open_position_text h3 {
+    font-size: 2.4em;
+  }
+
+  .open_position_text p {
+    font-size: 1.4em;
+  }
+
+  .job .title h3 {
+    font-size: 1.6em;
+    text-align: center;
+  }
+
+  .job .title h5 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .job .location h3 {
+    text-align: center;
+  }
+  
+  .job .location p {
+    text-align: center;
+  }
+
+  .apply_btn button {
+    width: 100%;
+  }
+  
+}
+/* open positions ends here */
+
+
+/* cookies */
+.cookie-consent {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background-color: #000;
+  color: #fff;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.cookie-consent p {
+  margin: 0;
+}
+
+.cookie-consent a {
+  color: var(--surface-color);
+  text-decoration: underline;
+}
+
+.cookie-button {
+  background-color: var(--surface-color);
+  color: var(--accent-color);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cookie-button:hover {
+  color: var(--default-color);
+}
+
+

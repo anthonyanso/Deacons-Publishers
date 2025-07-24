@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Remove .php from URL
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^/.]+)$ $1.php [L]
+
+# Remove .php from URLs inside the "career" folder
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/career/$1.php -f
+RewriteRule ^career/([^/.]+)$ career/$1.php [L]

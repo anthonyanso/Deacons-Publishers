@@ -1,0 +1,32 @@
+    // File upload directories
+    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . "../uploads/";
+    $cvDir = $uploadDir . "../uploads/marketing/";
+    $coverLetterDir = $uploadDir . "../uploads/marketing/";
+
+    // Create directories if they don't exist
+    if (!is_dir($cvDir)) mkdir($cvDir, 0777, true);
+    if (!is_dir($coverLetterDir)) mkdir($coverLetterDir, 0777, true);
+
+    // Function to handle file upload
+    function handleFileUpload($fileKey, $filePrefix, $uploadDir)
+    {
+        $fileName = $filePrefix . time() . "_" . basename($_FILES[$fileKey]["name"]);
+        $filePath = $uploadDir . $fileName;
+        if (!move_uploaded_file($_FILES[$fileKey]["tmp_name"], $filePath)) {
+            die("Error uploading " . $fileKey . ".");
+        }
+        return $fileName;
+    }
+
+    // Handle Resume Upload
+    $resumeFileName = handleFileUpload("resume", "resume_", $cvDir);
+
+    // Handle Cover Letter Upload
+    $coverLetterFileName = handleFileUpload("coverLetter", "coverletter_", $coverLetterDir);
+
+
+
+
+
+
+
